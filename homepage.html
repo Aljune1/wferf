@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelix - Discover the World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+   /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: url('backgroundpicture.jpg') no-repeat center center/cover;
+    height: 100vh;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative; 
+    z-index: 10; /* Make sure navbar is on top */
+}
+
+/* Left Menu for "Watch Now" */
+.menu-left {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu-left .watch-now {
+    color: white;
+    text-decoration: none;
+    background-color: #ff5722;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu-left .watch-now:hover {
+    background-color: #ff7842;
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Main Menu Styling */
+.menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-left: auto;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #ff7842;
+    color: white;
+}
+
+/* Menu toggle for mobile view */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero Content */
+.hero-content {
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Title Style */
+.hero-content h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content .description {
+    font-size: 18px;
+    color: white;
+    margin-top: 15px;
+    max-width: 900px;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content span {
+    font-weight: 700;
+    color: #ff5722;
+    font-size: 40px;
+    margin-top: 0;
+    line-height: 1;
+}
+
+.hero-content .tagline {
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    margin-top: 0px;
+    font-style: italic;
+}
+
+/* Explore Button */
+.explore-btn {
+    padding: 10px 30px;
+    background-color: #ff5722;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.explore-btn:hover {
+    background-color: #ff7842;
+}
+
+/* Search Section */
+.search-section {
+    background: linear-gradient(90deg, #f39c12, #8e44ad);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.search-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab.active, .tab:hover {
+    background-color: white;
+    color: black;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.search-form input, .search-form select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+    background-color: #f39c12;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+}
+
+/* About Us, Attractions, and Activities Section */
+section h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+}
+
+section p {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Navbar Adjustments */
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu.active {
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content span {
+        display: block;
+        font-size: 28px;
+    }
+
+    /* Adjust Search Section */
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    /* Section Text */
+    section h2 {
+        font-size: 28px;
+    }
+
+    section p {
+        font-size: 16px;
+    }
+}
+</style>
+<body>
+    <header class="hero">
+        <div class="overlay">
+            <nav class="navbar">
+                <ul class="menu-left">
+                    <li><a href="#" class="watch-now">Watch Now</a></li>
+                </ul>
+                <div class="logo">EcoExplore</div>
+                <button class="menu-toggle">&#9776;</button>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Attractions</a></li>
+                    <li><a href="#">Activities</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hero-content">
+                <h1>EKINGS <br><span>RECREATIONAL PARK AND CAMP</span></h1>
+                <p class="tagline">Find Your Path, Blaze New Trails – Camp Awaits!</p>
+                <p class="description">Ekings Recreational Park and Camp in Pandan, antique, is a prime ecotourism destination in the Philippines, offering eco-friendly activities and promoting sustainable tourism. It balances recreational opportunities with environmental conservation, supports local livelihoods, and serves as an educational platform for environmental stewardship, benefiting both tourists and the region's ecological well-being.</p>
+                <a href="#" class="btn explore-btn">Explore Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <h2>Booking and Pricing Section</h2>
+        <div class="search-tabs">
+            <button class="tab active">Guided Tours</button>
+            <button class="tab">Eco-Lodges</button>
+            <button class="tab">Package Deals</button>
+        </div>
+        <form class="search-form">
+            <input type="text" placeholder="Options for guided tours and package deals...">
+            <input type="date">
+            <select>
+                <option value="guided-tour">Guided Tour</option>
+                <option value="eco-lodge">Eco-Lodge</option>
+                <option value="package-deal">Package Deal</option>
+            </select>
+            <button class="search-btn">Secure Online Booking</button>
+        </form>
+    </section>
+    
+
+    <footer class="footer">
+        <p>&copy; 2024 EcoExplore. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Menu for Mobile View
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
